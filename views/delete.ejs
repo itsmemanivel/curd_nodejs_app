@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technoboot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+
+<body style="font-family: 'Poppins';">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Technoboot</a>
+    </nav>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-sm-10">
+
+                <nav style="background-color: #E9ECEF;" class="navbar navbar-expand-lg navbar-light bg">
+                    <ul style="display: flex;flex-direction:row;" class="navbar-nav mr-auto">
+                        <li style="margin-right: 20%;" class="nav-item">
+                            <a class="nav-link" href="/create">Create</a>
+                        </li>
+                        <li style="margin-right: 20%;" class="nav-item">
+                            <a class="nav-link" href="/update">Update</a>
+                        </li>
+
+                        <li style="margin-right: 20%;" class="nav-item">
+                            <a class="nav-link" href="/read">Read</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/delete">Delete</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="jumbotron jumbotron-fluid">
+
+                    <div class="container">
+
+                        <h3 style="text-align: center;" class="display-5">Delete</h3><br>
+                        <div>
+                            <ul>
+                                <% result.forEach(function(dat) {%>
+                                    <li style="margin:5px; padding:5%; " class="card">
+                                        <span style="display:inline-block">
+                                        <form action="/api_v1/delete" method="post">
+                                            <input style="display: none;" name="id" type="text" value="<%= dat._id %>">
+                                            <button style="float: right;" type="submit" class="btn btn-danger"> Delete</button></span>
+
+                                        <h3> Title:
+                                            <%= dat.title %>
+
+                                        </h3>
+
+                                        </form>
+
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+
+            </div>
+
+
+
+        </div>
+        <footer>
+            <%- include('./footer'); %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
